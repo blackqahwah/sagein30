@@ -64,6 +64,22 @@
     
       }   )
 
+
+      reloadBtn.addEventListener("click", event => {
+      
+        newList.shift();
+ 
+        serverList.shift();
+ 
+        quoteCategs.objectList.shift();
+ 
+        console.log(mainList[0]);
+ 
+        event.preventDefault();
+     
+       }   )
+ 
+
     
        
     
