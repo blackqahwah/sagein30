@@ -1,6 +1,5 @@
     let protoCategs = {
 
-        objectList : [],
         screenshot: "function using AdobeAPI",
        
         select(selected) {
@@ -11,16 +10,32 @@
 
             if (event.target.nodeName == "BUTTON") {
           
-              let clickedButton = event.target.textContent;
+              let opTion = event.target.textContent;
 
               let banner = document.getElementById('begin');
 
-              banner.innerHTML = `Time to learn an ${clickedButton}. 
-              Here's your ${clickedButton} for today: '${selected}'`;
+              banner.innerHTML = `Time to learn an ${opTion}. 
+              Here's your ${opTion} for today: '${selected}'`;
 
             }
 
             });
+
+
+            let nxtBtn = document.getElementById('nxtBtn');
+
+            nxtBtn.addEventListener("click", event => {
+      
+              let banner = document.getElementById('begin');
+      
+              let option = event.target.textContent;
+      
+                    banner.innerHTML = `Here's your ${option}: ${selected}`
+
+                   
+             
+          
+            }   )
         },
 
        
@@ -30,55 +45,22 @@
 
       let quoteCategs = Object.create(protoCategs);
 
-      let serverList = [];
-      let mainList = ["kayf?", "khayr?", "min wayn int?!"] 
-  
+      let mainList = ["kayf?", "khayr?", "min wayn int?!"];
+
        function pushToServe() {
 
-          serverList.push(mainList[0]);
-
-          quoteCategs.objectList.push(serverList[0]);
-
-          quoteCategs.select(quoteCategs.objectList[0]);
-
-         
+          quoteCategs.select(mainList[0]);
+  
       }
-    
-      pushToServe();
-
-
-      let reloadBtn = document.getElementById('doneBtn');
-
-
-      reloadBtn.addEventListener("click", event => {
       
-       mainList.shift();
-
-       serverList.shift();
-
-       quoteCategs.objectList.shift();
-
-       console.log(mainList[0]);
-
-       event.preventDefault();
-    
-      }   )
 
 
-      reloadBtn.addEventListener("click", event => {
-      
-        newList.shift();
- 
-        serverList.shift();
- 
-        quoteCategs.objectList.shift();
- 
-        console.log(mainList[0]);
- 
-        event.preventDefault();
-     
-       }   )
- 
+       function nextNow() {
+
+        quoteCategs.select(mainList[1]);
+
+     }
+
 
     
        

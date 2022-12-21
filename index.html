@@ -13,7 +13,10 @@
 <!-- start button should be revealed after selection and should reveal quote to be learnt -->
 
 <div id="listenedUpon">
-<button>
+
+    <!-- when either button is clicked, the other vanishes. -->
+
+<button onclick="pushToServe()">
     Arabic Quote
 </button>
 
@@ -27,10 +30,21 @@
 <div>
 
     <h2 id="begin"></h2>
+    <!-- <button> Submit </button> -->
 
 </div>
 
-<button id="doneBtn"> Done </button>
+<!-- Below Div is hidden until user successfully 'submits' with button above -->
+
+<div>
+
+    <h3> what to do next?</h3>
+<!-- (reveals options to share? practice again? or pay x$ to skip 24hrs for next quote) -->
+    <button id="nxtBtn" onclick="nextNow()"> Next Quote </button>
+    <!-- <button> Share (with options for screenshot, a video of yourself saying it, etc) </button> -->
+</div>
+
+
 
 
 
