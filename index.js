@@ -1,6 +1,7 @@
     let protoCategs = {
 
         screenshot: "function using AdobeAPI",
+      
        
         select(selected) {
 
@@ -32,7 +33,7 @@
       
                     banner.innerHTML = `Here's your ${option}: ${selected}`
 
-                   
+                   event.preventDefault();
              
           
             }   )
@@ -40,16 +41,21 @@
 
        
         };
-
         
 
       let quoteCategs = Object.create(protoCategs);
 
-      let mainList = ["kayf?", "khayr?", "min wayn int?!"];
+      let mainList = new Map()
+      
+      mainList.set ("Qtone", "kayf?");
+      mainList.set ("Qttwo", "khayr?");
+      mainList.set ("Qtthree", "min wayn int?!");
+    
 
        function pushToServe() {
 
-          quoteCategs.select(mainList[0]);
+          quoteCategs.select(mainList.get("Qtone"));
+          mainList.delete("Qtone");
   
       }
       
@@ -57,7 +63,9 @@
 
        function nextNow() {
 
-        quoteCategs.select(mainList[1]);
+        
+        console.log(mainList.has("Qtone"))
+        quoteCategs.select(mainList.get("Qttwo"));
 
      }
 
