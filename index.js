@@ -1,6 +1,8 @@
     let protoCategs = {
 
         screenshot: "function using AdobeAPI",
+
+        myList: [],
       
        
         select(selected) {
@@ -25,17 +27,29 @@
 
             let nxtBtn = document.getElementById('nxtBtn');
 
+            let i = 0;
+
             nxtBtn.addEventListener("click", event => {
-      
+
+              i++;
+
+              // how to hold the adder from working for 24hrs?
+
               let banner = document.getElementById('begin');
       
               let option = event.target.textContent;
-      
-                    banner.innerHTML = `Here's your ${option}: ${selected}`
 
-                   event.preventDefault();
-             
-          
+              if (i < protoCategs.myList.length || i == protoCategs.myList.length ) {
+
+                banner.innerHTML = `Here's your ${option}: ${protoCategs.myList[i]}`
+
+              } else{
+
+                banner.innerHTML = "I've run out of quotes for ya";
+
+              }
+      
+            
             }   )
         },
 
@@ -45,35 +59,36 @@
 
       let quoteCategs = Object.create(protoCategs);
 
-      let mainList = new Map()
-      
-      mainList.set ("Qtone", "kayf?");
-      mainList.set ("Qttwo", "khayr?");
-      mainList.set ("Qtthree", "min wayn int?!");
+
     
+      let mainList = ["kayf?", "khayr?", "min wayn int?!"];
+
+
+      function serveFirst() {
+
+        for(let i = 0; i < mainList.length; i++) {
+
+          quoteCategs.myList.push(mainList[i]);
+
+        }
+
+      }
+
+      serveFirst();
+
+
 
        function pushToServe() {
 
-          quoteCategs.select(mainList.get("Qtone"));
-          mainList.delete("Qtone");
-  
+       
+          quoteCategs.select(quoteCategs.myList[0]);
+        
+
       }
+
+      pushToServe();
       
 
-
-       function nextNow() {
-
-        
-        console.log(mainList.has("Qtone"))
-        quoteCategs.select(mainList.get("Qttwo"));
-
-     }
-
-
-    
-       
-    
-     
 
       // clickedCateg.select(clickedCateg.lines[x]);
       // can x above be determined by a loop to 
