@@ -3,6 +3,10 @@
         screenshot: "function using AdobeAPI",
 
         myList: [],
+
+        transList: [],
+
+      
       
        
         select(selected) {
@@ -18,7 +22,7 @@
               let banner = document.getElementById('begin');
 
               banner.innerHTML = `Time to learn an ${opTion}. 
-              Here's your ${opTion} for today: '${selected}'`;
+              Here's your ${opTion} for today: '${selected}' Translation: '${protoCategs.transList[i]}'`;
 
             }
 
@@ -39,9 +43,9 @@
       
               let option = event.target.textContent;
 
-              if (i < protoCategs.myList.length || i == protoCategs.myList.length ) {
+              if (i < protoCategs.myList.length) {
 
-                banner.innerHTML = `Here's your ${option}: ${protoCategs.myList[i]}`
+                banner.innerHTML = `Here's your ${option}: '${protoCategs.myList[i]}', Translation: '${protoCategs.transList[i]}'`
 
               } else{
 
@@ -61,7 +65,9 @@
 
 
     
-      let mainList = ["kayf?", "khayr?", "min wayn int?!"];
+      let mainList = [" في النهاية ، سنصبح جميعًا قصصًا", "أخلاقك تهمني أكثر من جمالك", "إذا تم العقل نقص الكلام"];
+
+      let transList = ["In the end, we will all become stories.", "Your manners interest me more than your beauty.", "With sharp intellect, speech reduces."]
 
 
       function serveFirst() {
@@ -69,6 +75,8 @@
         for(let i = 0; i < mainList.length; i++) {
 
           quoteCategs.myList.push(mainList[i]);
+
+          quoteCategs.transList.push(transList[i]);
 
         }
 
@@ -109,3 +117,10 @@
 
 
 
+function greaterThan(n) {
+  return m => m > n;
+}
+
+let whichisGreater = greaterThan(10);
+
+console.log(whichisGreater(11));2
